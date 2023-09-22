@@ -31,11 +31,6 @@ package_version = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(package_version)
 sys.modules[spec.name] = package_version
 
-try:
-    import torch
-except ImportError:
-    print('PyTorch not found! please install torch/torchvision before proceeding to install the foresight package.')
-    exit(1)
 
 class build_maybe_inplace(build_py):
     def run(self):
